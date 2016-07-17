@@ -6,11 +6,11 @@ import javax.ws.rs.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Path("/testEvent")
-public class BoosterService {
+@Path("/booster")
+public class BoosterRequestService {
     static ArrayList<Server> singleEvent = new ArrayList<>();
 
-    public BoosterService() {
+    public BoosterRequestService() {
         this.buildServerMock();
     }
 
@@ -45,18 +45,17 @@ public class BoosterService {
     }
 
     @GET
-    @Path("/test")
+    @Path("/retrieve/all")
     @Produces("application/json")
     public List<Server> retrieveServerList() {
         return singleEvent;
      }
 
-
     @GET
-    @Path("/test/owners/{ownerId}")
+    @Path("/retrieve/owners/{ownerId}")
     @Produces("application/json")
-    public List<Server> findServerByOwnerId(@PathParam("ownerId") String ownerId) {
-        ArrayList<Server> servers = new ArrayList<Server>();
+    public List<Server> findServersByOwnerId(@PathParam("ownerId") String ownerId) {
+        ArrayList<Server> servers = new ArrayList<>();
 
         singleEvent.forEach((temp) -> {
             if (temp.getServerOwnerID().equalsIgnoreCase(ownerId)) {
@@ -66,4 +65,6 @@ public class BoosterService {
 
         return servers;
     }
+
+
 }
