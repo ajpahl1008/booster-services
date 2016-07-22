@@ -1,13 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.pahlsoft.booster</groupId>
   <artifactId>booster-services</artifactId>
   <packaging>war</packaging>
   <scm>
       <developerConnection>scm:git:https://github.com/ajpahl1008/booster-services.git</developerConnection>
+    <tag>booster-services-0.1</tag>
   </scm>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1</version>
   <name>Pahlsoft's Booster Web Services</name>
   <url>http://rockwad_aws.mooo.com:9080/booster-services/</url>
   <dependencies>
