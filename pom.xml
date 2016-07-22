@@ -5,9 +5,9 @@
   <packaging>war</packaging>
   <scm>
       <developerConnection>scm:git:https://github.com/ajpahl1008/booster-services.git</developerConnection>
-    <tag>booster-services-0.1</tag>
+      <tag>booster-services-0.1</tag>
   </scm>
-  <version>0.1</version>
+  <version>0.1-SNAPSHOT</version>
   <name>Pahlsoft's Booster Web Services</name>
   <url>http://rockwad_aws.mooo.com:9080/booster-services/</url>
   <dependencies>
