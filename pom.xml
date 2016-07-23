@@ -5,7 +5,6 @@
   <packaging>war</packaging>
   <scm>
       <developerConnection>scm:git:https://github.com/ajpahl1008/booster-services.git</developerConnection>
-      <tag>HEAD</tag>
   </scm>
   <version>0.1-SNAPSHOT</version>
   <name>Pahlsoft's Booster Web Services</name>
