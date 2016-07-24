@@ -4,7 +4,7 @@
   <artifactId>booster-services</artifactId>
   <packaging>war</packaging>
   <scm>
-      <developerConnection>scm:git:ssh://git@github.com:ajpahl1008/booster-services.git</developerConnection>
+      <developerConnection>scm:git:ssh://git@github.com/ajpahl1008/booster-services.git</developerConnection>
       <tag>HEAD</tag>
   </scm>
   <version>0.1-SNAPSHOT</version>
