@@ -9,7 +9,7 @@
   </scm>
   <version>0.1-SNAPSHOT</version>
   <name>Pahlsoft's Booster Web Services</name>
-  <url>http://rockwad_aws.mooo.com:9080/booster-services/</url>
+  <url>http://booster.pahlsoft.com:9080/booster-services/</url>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
