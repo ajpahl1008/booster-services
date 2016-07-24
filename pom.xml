@@ -3,7 +3,10 @@
   <groupId>com.pahlsoft.booster</groupId>
   <artifactId>booster-services</artifactId>
   <packaging>war</packaging>
+
   <scm>
+      <url>https://github.com/ajpahl1008/booster-services</url>
+      <connection>scm:git:https://github.com/ajpahl1008/booster-services.git</connection>
       <developerConnection>scm:git:ssh://git@github.com/ajpahl1008/booster-services.git</developerConnection>
       <tag>HEAD</tag>
   </scm>
