@@ -6,7 +6,7 @@
     <artifactId>booster-services</artifactId>
     <url>http://booster.pahlsoft.com:9080/booster-services/</url>
     <packaging>war</packaging>
-    <version>0.1</version>
+    <version>0.1-SNAPSHOT</version>
 
     <scm>
         <url>https://github.com/ajpahl1008/booster-services</url>
