@@ -61,7 +61,6 @@
                 </configuration>
             </plugin>
         </plugins>
-
         <finalName>booster-services</finalName>
     </build>
 </project>
