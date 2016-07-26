@@ -14,11 +14,11 @@
 
     <distributionManagement>
         <repository>
-            <id>release</id>
+            <id>PahlsoftRepo</id>
             <url>http://booster.pahlsoft.com:8081/repository/pahlsoft</url>
         </repository>
         <snapshotRepository>
-            <id>snapshots</id>
+            <id>PahlsoftRepo</id>
             <url>http://booster.pahlsoft.com:8081/repository/pahlsoft</url>
         </snapshotRepository>
     </distributionManagement>
