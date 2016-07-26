@@ -17,10 +17,10 @@
             <id>PahlsoftRepo</id>
             <url>http://booster.pahlsoft.com:8081/repository/maven-releases</url>
         </repository>
-        <snapshotRepository>
-            <id>PahlsoftRepo</id>
-            <url>http://booster.pahlsoft.com:8081/repository/maven-snapshots</url>
-        </snapshotRepository>
+        <!--<snapshotRepository>-->
+            <!--<id>PahlsoftRepo</id>-->
+            <!--<url>http://booster.pahlsoft.com:8081/repository/maven-snapshots</url>-->
+        <!--</snapshotRepository>-->
     </distributionManagement>
 
     <version>0.1-SNAPSHOT</version>
