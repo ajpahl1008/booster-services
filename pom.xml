@@ -3,7 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.pahlsoft.booster</groupId>
     <artifactId>booster-services</artifactId>
+    <url>http://booster.pahlsoft.com:9080/booster-services/</url>
     <packaging>war</packaging>
+    <version>0.1-SNAPSHOT</version>
 
     <scm>
         <url>https://github.com/ajpahl1008/booster-services</url>
@@ -14,18 +16,16 @@
 
     <distributionManagement>
         <repository>
-            <id>PahlsoftRepo</id>
+        <id>PahlsoftRepo</id>
             <url>http://booster.pahlsoft.com:8081/repository/maven-releases</url>
         </repository>
         <snapshotRepository>
-            <id>PahlsoftRepo</id>
+        <id>PahlsoftRepo</id>
             <url>http://booster.pahlsoft.com:8081/repository/maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
-    <version>0.1-SNAPSHOT</version>
     <name>Pahlsoft's Booster Web Services</name>
-    <url>http://booster.pahlsoft.com:9080/booster-services/</url>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -46,30 +46,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>com.ibm.tools.target</groupId>-->
-        <!--<artifactId>was-liberty</artifactId>-->
-        <!--<version>LATEST</version>-->
-        <!--<type>pom</type>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>com.ibm.tools.target</groupId>-->
-        <!--<artifactId>was-liberty-impl</artifactId>-->
-        <!--<version>LATEST</version>-->
-        <!--<type>pom</type>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>com.ibm.tools.target</groupId>-->
-        <!--<artifactId>was</artifactId>-->
-        <!--<version>8.5.5</version>-->
-        <!--<type>pom</type>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-
     </dependencies>
 
     <build>
@@ -83,14 +59,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-            <!--<groupId>org.apache.maven.plugins</groupId>-->
-            <!--<artifactId>maven-release-plugin</artifactId>-->
-            <!--<version>2.5.3</version>-->
-            <!--<configuration>-->
-
-            <!--</configuration>-->
-            <!--</plugin>-->
         </plugins>
 
         <finalName>booster-services</finalName>
