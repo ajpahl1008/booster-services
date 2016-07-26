@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>Pahlsoft's Booster Web Services</name>
+    <name>Pahlsoft Booster Web Services</name>
     <groupId>com.pahlsoft.booster</groupId>
     <artifactId>booster-services</artifactId>
     <url>http://booster.pahlsoft.com:9080/booster-services/</url>
