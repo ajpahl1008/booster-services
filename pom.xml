@@ -15,11 +15,11 @@
     <distributionManagement>
         <repository>
             <id>PahlsoftRepo</id>
-            <url>http://booster.pahlsoft.com:8081/repository/pahlsoft/maven-releases</url>
+            <url>http://booster.pahlsoft.com:8081/repository/maven-releases</url>
         </repository>
         <snapshotRepository>
             <id>PahlsoftRepo</id>
-            <url>http://booster.pahlsoft.com:8081/repository/pahlsoft/maven-snapshots</url>
+            <url>http://booster.pahlsoft.com:8081/repository/maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
