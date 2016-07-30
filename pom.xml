@@ -6,7 +6,7 @@
     <artifactId>booster-services</artifactId>
     <url>http://booster.pahlsoft.com:9080/booster-services/</url>
     <packaging>war</packaging>
-    <version>0.5-SNAPSHOT</version>
+    <version>0.6-SNAPSHOT</version>
 
     <properties>
         <project.scm.id>github-jenkins-credentials</project.scm.id>
