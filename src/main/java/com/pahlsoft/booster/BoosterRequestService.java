@@ -8,7 +8,7 @@ import java.util.List;
 
 @Path("/booster")
 public class BoosterRequestService {
-    static ArrayList<Server> singleEvent = new ArrayList<>();
+    private ArrayList<Server> singleEvent = new ArrayList<>();
 
     public BoosterRequestService() {
         this.buildServerMock();
@@ -65,6 +65,5 @@ public class BoosterRequestService {
 
         return servers;
     }
-
 
 }

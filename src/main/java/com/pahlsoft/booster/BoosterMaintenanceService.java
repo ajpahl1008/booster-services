@@ -11,7 +11,7 @@ import java.util.List;
 
 @Path("/booster")
 public class BoosterMaintenanceService {
-    static ArrayList<Server> singleEvent = new ArrayList<>();
+    private ArrayList<Server> singleEvent = new ArrayList<>();
 
     public BoosterMaintenanceService() {
         this.buildServerMock();
