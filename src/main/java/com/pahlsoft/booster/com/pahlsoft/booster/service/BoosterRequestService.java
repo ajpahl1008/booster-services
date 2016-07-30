@@ -62,8 +62,30 @@ public class BoosterRequestService {
                 servers.add(temp);
             }
         });
-
         return servers;
     }
 
+    public List<Server> findServersByUaid(@PathParam("uaId") String uaId) {
+        ArrayList<Server> servers = new ArrayList<>();
+
+        singleEvent.forEach((temp) -> {
+            for (String id : temp.getServerUAIDs()){
+                if (id.matches(uaId)) {
+                    servers.add(temp);
+                }
+            }
+        });
+        return servers;
+    }
+
+    public List<Server> findServersByHostName(@PathParam("hostname")String hostname){
+        ArrayList<Server> servers = new ArrayList<>();
+
+        singleEvent.forEach((temp) -> {
+               if (temp.getServerName().contains(hostname)) {
+                    servers.add(temp);
+                }
+        });
+        return servers;
+    }
 }
