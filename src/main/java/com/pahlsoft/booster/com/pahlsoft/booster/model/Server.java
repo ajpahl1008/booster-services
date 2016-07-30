@@ -8,6 +8,7 @@ public class Server {
     private String changeRecord;
     private String serverOwnerName;
     private String serverOwnerID;
+    private String patchingStatus;
 
     public String getServerOwnerID() {
         return serverOwnerID;
@@ -93,5 +94,13 @@ public class Server {
 
     public void setChangeRecord(String changeRecord) {
         this.changeRecord = changeRecord;
+    }
+
+    public String getPatchingStatus() {
+        return patchingStatus;
+    }
+
+    public void setPatchingStatus(String patchingStatus) {
+        this.patchingStatus = patchingStatus;
     }
 }

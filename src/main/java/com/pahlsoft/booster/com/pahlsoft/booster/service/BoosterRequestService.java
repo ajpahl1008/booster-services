@@ -5,6 +5,7 @@ import com.pahlsoft.booster.com.pahlsoft.booster.model.Server;
 import javax.ws.rs.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("/booster")
 public class BoosterRequestService {
@@ -33,6 +34,12 @@ public class BoosterRequestService {
                 targetServer.setPatchingRequired(true);
             } else {
                 targetServer.setPatchingRequired(false);
+            }
+
+            if (x % 2 ==0 ) {
+                targetServer.setPatchingStatus("CR: Pending Approval");
+            } else {
+                targetServer.setPatchingStatus("CR: Approved");
             }
 
             ArrayList<String> serverUAIDs = new ArrayList<String>();
@@ -74,20 +81,20 @@ public class BoosterRequestService {
         });
         return servers;
     }
-
+    @GET
+    @Path("/retrieve/uaids/{uaId}")
+    @Produces("application/json")
     public List<Server> findServersByUaid(@PathParam("uaId") String uaId) {
         ArrayList<Server> servers = new ArrayList<>();
 
         singleEvent.forEach((temp) -> {
-            for (String id : temp.getServerUAIDs()){
-                if (id.matches(uaId)) {
-                    servers.add(temp);
-                }
-            }
+            servers.addAll(temp.getServerUAIDs().stream().filter(id -> id.matches(uaId)).map(id -> temp).collect(Collectors.toList()));
         });
         return servers;
     }
-
+    @GET
+    @Path("/retrieve/servers/{hostname}")
+    @Produces("application/json")
     public List<Server> findServersByHostName(@PathParam("hostname")String hostname){
         ArrayList<Server> servers = new ArrayList<>();
 
