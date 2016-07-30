@@ -23,10 +23,16 @@ public class BoosterRequestService {
             targetServer.setServerName("server000" + x + ".company.com");
             targetServer.setServerOwnerName("Steve Jones");
             targetServer.setServerOwnerID("x1234111");
-            if (x % 2 == 0) {
+            if (x % 3 == 0) {
                 targetServer.setRebootRequired(true);
             } else {
                 targetServer.setRebootRequired(false);
+            }
+
+            if (x % 1 == 0) {
+                targetServer.setPatchingRequired(true);
+            } else {
+                targetServer.setPatchingRequired(false);
             }
 
             ArrayList<String> serverUAIDs = new ArrayList<String>();

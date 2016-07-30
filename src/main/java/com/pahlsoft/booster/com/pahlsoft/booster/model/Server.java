@@ -20,7 +20,16 @@ public class Server {
     private List<String> serverUAIDs;
     private String lastPatchingDate;
     private List<String> pendingPatchInfo;
+    private boolean patchingRequired;
     private boolean rebootRequired;
+
+    public boolean isPatchingRequired() {
+        return patchingRequired;
+    }
+
+    public void setPatchingRequired(boolean patchingRequired) {
+        this.patchingRequired = patchingRequired;
+    }
 
     public boolean isRebootRequired() {
         return rebootRequired;
