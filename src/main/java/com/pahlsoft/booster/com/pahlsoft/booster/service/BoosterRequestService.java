@@ -23,7 +23,11 @@ public class BoosterRequestService {
             targetServer.setServerName("server000" + x + ".company.com");
             targetServer.setServerOwnerName("Steve Jones");
             targetServer.setServerOwnerID("x1234111");
-            targetServer.setRebootRequired(true);
+            if (x % 2 == 0) {
+                targetServer.setRebootRequired(true);
+            } else {
+                targetServer.setRebootRequired(false);
+            }
 
             ArrayList<String> serverUAIDs = new ArrayList<String>();
             serverUAIDs.add("APP001");
