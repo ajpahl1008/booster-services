@@ -1,14 +1,19 @@
-import com.pahlsoft.booster.BoosterRequestService;
-import junit.framework.Assert;
+import com.pahlsoft.booster.com.pahlsoft.booster.service.BoosterRequestService;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class BoosterServiceRequestTest {
 
+    static BoosterRequestService boosterRequestService = new BoosterRequestService();
+
     @Test
-    public void retrieveListOf9Items() {
-        BoosterRequestService boosterRequestService = new BoosterRequestService();
+    public void retrieveListOfItemsShouldBe10() {
         Assert.assertEquals(boosterRequestService.retrieveServerList().size(), 10);
     }
 
+    @Test
+    public void findServerByOwnerShouldBe10() {
+        Assert.assertEquals(boosterRequestService.findServersByOwnerId("x1234111").size(),10);
+    }
 
 }

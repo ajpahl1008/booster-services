@@ -1,19 +1,16 @@
-package com.pahlsoft.booster;
+package com.pahlsoft.booster.com.pahlsoft.booster.service;
 
 import com.pahlsoft.booster.com.pahlsoft.booster.model.Server;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Path("/booster")
-public class BoosterMaintenanceService {
+public class BoosterRequestService {
     private ArrayList<Server> singleEvent = new ArrayList<>();
 
-    public BoosterMaintenanceService() {
+    public BoosterRequestService() {
         this.buildServerMock();
     }
 
@@ -48,10 +45,25 @@ public class BoosterMaintenanceService {
     }
 
     @GET
-    @Path("/update/{server}")
+    @Path("/retrieve/all")
     @Produces("application/json")
-    public Server updateServerInfo(@PathParam("server") Server server) {
-        return server;
+    public List<Server> retrieveServerList() {
+        return singleEvent;
      }
+
+    @GET
+    @Path("/retrieve/owners/{ownerId}")
+    @Produces("application/json")
+    public List<Server> findServersByOwnerId(@PathParam("ownerId") String ownerId) {
+        ArrayList<Server> servers = new ArrayList<>();
+
+        singleEvent.forEach((temp) -> {
+            if (temp.getServerOwnerID().equalsIgnoreCase(ownerId)) {
+                servers.add(temp);
+            }
+        });
+
+        return servers;
+    }
 
 }
