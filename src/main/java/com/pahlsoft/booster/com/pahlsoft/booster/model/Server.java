@@ -3,12 +3,19 @@ package com.pahlsoft.booster.com.pahlsoft.booster.model;
 import java.util.List;
 
 public class Server {
+
     private String serverName;
     private String changeRecordStatus;
     private String changeRecord;
     private String serverOwnerName;
     private String serverOwnerID;
     private String patchingStatus;
+    private List<String> serverUAIDs;
+    private String lastPatchingDate;
+    private List<String> pendingPatchInfo;
+    private boolean patchingRequired;
+    private boolean rebootRequired;
+
 
     public String getServerOwnerID() {
         return serverOwnerID;
@@ -17,12 +24,6 @@ public class Server {
     public void setServerOwnerID(String serverOwnerID) {
         this.serverOwnerID = serverOwnerID;
     }
-
-    private List<String> serverUAIDs;
-    private String lastPatchingDate;
-    private List<String> pendingPatchInfo;
-    private boolean patchingRequired;
-    private boolean rebootRequired;
 
     public boolean isPatchingRequired() {
         return patchingRequired;
