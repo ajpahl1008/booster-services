@@ -27,35 +27,35 @@ public class BoosterRequestService {
         return  collection.find();
      }
 
-    @GET
-    @Path("/retrieve/owners/all")
-    @Produces("application/json")
-    public FindIterable retrieveOwnerList() {
-        System.out.println("Retrieving All Servers");
-        return  collection.find();
-    }
-
-    @GET
-    @Path("/retrieve/owners/{ownerId}")
-    @Produces("application/json")
-    public FindIterable findServersByOwnerId(@PathParam("ownerId") String ownerId) {
-        System.out.println("Retrieving Servers for Owner: " + ownerId);
-        return collection.find(new BasicDBObject("serverOwnerID", ownerId));
-    }
-
-    @GET
-    @Path("/retrieve/servers/{serverName}")
-    @Produces("application/json")
-    public FindIterable findServersByName(@PathParam("serverName")String serverName){
-        return collection.find(new BasicDBObject("serverName", serverName));
-    }
-
-    @GET
-    @Path("/retrieve/uaid/{uaID}")
-    @Produces("application/json")
-    public FindIterable findServersByUaid(@PathParam("uaID")String uaId){
-        return collection.find(new BasicDBObject("serverUAIDs", uaId));
-    }
+//    @GET
+//    @Path("/retrieve/owners/all")
+//    @Produces("application/json")
+//    public FindIterable retrieveOwnerList() {
+//        System.out.println("Retrieving All Servers");
+//        return  collection.find();
+//    }
+//
+//    @GET
+//    @Path("/retrieve/owners/{ownerId}")
+//    @Produces("application/json")
+//    public FindIterable findServersByOwnerId(@PathParam("ownerId") String ownerId) {
+//        System.out.println("Retrieving Servers for Owner: " + ownerId);
+//        return collection.find(new BasicDBObject("serverOwnerID", ownerId));
+//    }
+//
+//    @GET
+//    @Path("/retrieve/servers/{serverName}")
+//    @Produces("application/json")
+//    public FindIterable findServersByName(@PathParam("serverName")String serverName){
+//        return collection.find(new BasicDBObject("serverName", serverName));
+//    }
+//
+//    @GET
+//    @Path("/retrieve/uaid/{uaID}")
+//    @Produces("application/json")
+//    public FindIterable findServersByUaid(@PathParam("uaID")String uaId){
+//        return collection.find(new BasicDBObject("serverUAIDs", uaId));
+//    }
 
 }
 
