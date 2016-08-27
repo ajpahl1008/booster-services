@@ -6,7 +6,8 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 public class Main {
 
-    static MongoClient client = new MongoClient(new ServerAddress("localhost", 27017));
+    static MongoClientURI mongoClientURI = new MongoClientURI("mongodb://localhost:27017/?ssl=false");
+    static MongoClient client = new MongoClient(mongoClientURI);
 
     static MongoDatabase db = client.getDatabase("boosterDB");
 

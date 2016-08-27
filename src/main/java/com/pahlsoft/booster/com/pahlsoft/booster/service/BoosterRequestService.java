@@ -10,11 +10,9 @@ import javax.ws.rs.*;
 
 @Path("/booster")
 public class BoosterRequestService {
-
-    static MongoClient client = new MongoClient(new ServerAddress("localhost",27017));
-
+    static MongoClientURI mongoClientURI = new MongoClientURI("mongodb://localhost:2017?ssl=true");
+    static MongoClient client = new MongoClient(mongoClientURI);
     static MongoDatabase db = client.getDatabase("boosterDB");
-
     static MongoCollection collection = db.getCollection("booster");
 
     public BoosterRequestService() {
@@ -25,9 +23,17 @@ public class BoosterRequestService {
     @Path("/retrieve/servers/all")
     @Produces("application/json")
     public FindIterable retrieveServerList() {
-       System.out.println("Retrieving All Servers");
+        System.out.println("Retrieving All Servers");
         return  collection.find();
      }
+
+    @GET
+    @Path("/retrieve/owners/all")
+    @Produces("application/json")
+    public FindIterable retrieveOwnerList() {
+        System.out.println("Retrieving All Servers");
+        return  collection.find();
+    }
 
     @GET
     @Path("/retrieve/owners/{ownerId}")
@@ -43,15 +49,13 @@ public class BoosterRequestService {
     public FindIterable findServersByName(@PathParam("serverName")String serverName){
         return collection.find(new BasicDBObject("serverName", serverName));
     }
-//    @GET
-//    @Path("/retrieve/uaids/{uaId}")
-//    @Produces("application/json")
-//    public List<Server> findServersByUaid(@PathParam("uaId") String uaId) {
-//        ArrayList<Server> servers = new ArrayList<>();
-//
-//        singleEvent.forEach((temp) -> {
-//            servers.addAll(temp.getServerUAIDs().stream().filter(id -> id.matches(uaId)).map(id -> temp).collect(Collectors.toList()));
-//        });
-//        return servers;
-//    }
+
+    @GET
+    @Path("/retrieve/uaid/{uaID}")
+    @Produces("application/json")
+    public FindIterable findServersByUaid(@PathParam("uaID")String uaId){
+        return collection.find(new BasicDBObject("serverUAIDs", uaId));
+    }
+
 }
+
