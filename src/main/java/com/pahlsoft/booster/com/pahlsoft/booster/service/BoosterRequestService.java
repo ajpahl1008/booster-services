@@ -10,7 +10,7 @@ import javax.ws.rs.*;
 
 @Path("/booster")
 public class BoosterRequestService {
-    static MongoClientURI mongoClientURI = new MongoClientURI("mongodb://localhost:2017?ssl=true");
+    static MongoClientURI mongoClientURI = new MongoClientURI("mongodb://localhost:27017?ssl=true");
     static MongoClient client = new MongoClient(mongoClientURI);
     static MongoDatabase db = client.getDatabase("boosterDB");
     static MongoCollection collection = db.getCollection("booster");
