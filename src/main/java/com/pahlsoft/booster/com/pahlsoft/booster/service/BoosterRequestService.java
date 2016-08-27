@@ -4,8 +4,6 @@ import com.mongodb.*;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.pahlsoft.booster.com.pahlsoft.booster.model.Server;
-import org.mongojack.JacksonDBCollection;
 
 import javax.ws.rs.*;
 
@@ -20,7 +18,7 @@ public class BoosterRequestService {
     static MongoCollection collection = db.getCollection("booster");
 
     public BoosterRequestService() {
-            //this.buildServerMock();
+
     }
 
     @GET
