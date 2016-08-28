@@ -22,7 +22,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/servers/all")
+    @Path("/retrieve/getBooster/all")
     @Produces("application/json")
     public FindIterable retrieveServerList() {
         System.out.println("Retrieving All Servers");
@@ -58,31 +58,67 @@ public class BoosterRequestService {
         return  collection.find();
     }
 
+    @GET
+    @Path("/retrieve/inventory/all")
+    @Produces("application/json")
+    public FindIterable retrieveInventoryList() {
+        System.out.println("Retrieving Inventory");
+        collection = db.getCollection("inventory");
+        return  collection.find();
+    }
+
 
     @GET
-    @Path("/retrieve/owners/{ownerId}")
+    @Path("/retrieve/getBoosterByOwners/{ownerId}")
     @Produces("application/json")
-    public FindIterable findServersByOwnerId(@PathParam("ownerId") String ownerId) {
+    public FindIterable findBoosterByOwnerId(@PathParam("ownerId") String ownerId) {
         System.out.println("Retrieving Servers for Owner: " + ownerId);
         collection = db.getCollection("booster");
         return collection.find(new BasicDBObject("serverOwnerID", ownerId));
     }
 
     @GET
-    @Path("/retrieve/servers/{serverName}")
+    @Path("/retrieve/getBoosterByServername/{serverName}")
     @Produces("application/json")
-    public FindIterable findServersByName(@PathParam("serverName")String serverName){
+    public FindIterable findBoosterByName(@PathParam("serverName")String serverName){
         collection = db.getCollection("booster");
         return collection.find(new BasicDBObject("serverName", serverName));
     }
 
     @GET
-    @Path("/retrieve/uaid/{uaID}")
+    @Path("/retrieve/boosterByUaid/{uaID}")
     @Produces("application/json")
-    public FindIterable findServersByUaid(@PathParam("uaID")String uaId){
+    public FindIterable findBoosterByUaid(@PathParam("uaID")String uaId){
         collection = db.getCollection("booster");
         return collection.find(new BasicDBObject("serverUAIDs", uaId));
     }
+
+    @GET
+    @Path("/retrieve/getInventoryByOwners/{ownerId}")
+    @Produces("application/json")
+    public FindIterable findInventoryByOwnerId(@PathParam("ownerId") String ownerId) {
+        System.out.println("Retrieving Servers for Owner: " + ownerId);
+        collection = db.getCollection("inventory");
+        return collection.find(new BasicDBObject("serverOwnerID", ownerId));
+    }
+
+    @GET
+    @Path("/retrieve/getInventoryByServername/{serverName}")
+    @Produces("application/json")
+    public FindIterable findInventoryByName(@PathParam("serverName")String serverName){
+        collection = db.getCollection("inventory");
+        return collection.find(new BasicDBObject("_id", serverName));
+    }
+
+    @GET
+    @Path("/retrieve/inventoryByUaid/{uaID}")
+    @Produces("application/json")
+    public FindIterable findInventoryByUaid(@PathParam("uaID")String uaId){
+        collection = db.getCollection("inventory");
+        return collection.find(new BasicDBObject("relatedUaids", uaId));
+    }
+
+
 
 }
 
