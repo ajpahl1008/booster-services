@@ -15,7 +15,7 @@ public class BoosterRequestService {
 
     static MongoDatabase db = client.getDatabase("boosterDB");
 
-    static MongoCollection collection = db.getCollection("booster");
+    static MongoCollection collection; //= db.getCollection("booster");
 
     public BoosterRequestService() {
 
@@ -26,6 +26,7 @@ public class BoosterRequestService {
     @Produces("application/json")
     public FindIterable retrieveServerList() {
         System.out.println("Retrieving All Servers");
+        collection = db.getCollection("booster");
         return  collection.find();
      }
 
@@ -34,6 +35,7 @@ public class BoosterRequestService {
     @Produces("application/json")
     public FindIterable retrieveOwnerList() {
         System.out.println("Retrieving All Servers");
+        collection = db.getCollection("owners");
         return  collection.find();
     }
 
@@ -42,6 +44,7 @@ public class BoosterRequestService {
     @Produces("application/json")
     public FindIterable findServersByOwnerId(@PathParam("ownerId") String ownerId) {
         System.out.println("Retrieving Servers for Owner: " + ownerId);
+        collection = db.getCollection("booster");
         return collection.find(new BasicDBObject("serverOwnerID", ownerId));
     }
 
@@ -49,6 +52,7 @@ public class BoosterRequestService {
     @Path("/retrieve/servers/{serverName}")
     @Produces("application/json")
     public FindIterable findServersByName(@PathParam("serverName")String serverName){
+        collection = db.getCollection("booster");
         return collection.find(new BasicDBObject("serverName", serverName));
     }
 
@@ -56,6 +60,7 @@ public class BoosterRequestService {
     @Path("/retrieve/uaid/{uaID}")
     @Produces("application/json")
     public FindIterable findServersByUaid(@PathParam("uaID")String uaId){
+        collection = db.getCollection("booster");
         return collection.find(new BasicDBObject("serverUAIDs", uaId));
     }
 
