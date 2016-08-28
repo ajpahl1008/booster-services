@@ -15,7 +15,7 @@ public class BoosterRequestService {
 
     static MongoDatabase db = client.getDatabase("boosterDB");
 
-    static MongoCollection collection; //= db.getCollection("booster");
+    static MongoCollection collection;
 
     public BoosterRequestService() {
 
