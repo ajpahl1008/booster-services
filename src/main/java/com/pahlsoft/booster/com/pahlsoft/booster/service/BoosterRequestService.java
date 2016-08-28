@@ -34,10 +34,30 @@ public class BoosterRequestService {
     @Path("/retrieve/owners/all")
     @Produces("application/json")
     public FindIterable retrieveOwnerList() {
-        System.out.println("Retrieving All Servers");
+        System.out.println("Retrieving All Owners");
         collection = db.getCollection("owners");
         return  collection.find();
     }
+
+    @GET
+    @Path("/retrieve/uaids/all")
+    @Produces("application/json")
+    public FindIterable retrieveUaidList() {
+        System.out.println("Retrieving All UAIDs");
+        collection = db.getCollection("uaids");
+        return  collection.find();
+    }
+
+
+    @GET
+    @Path("/retrieve/patches/all")
+    @Produces("application/json")
+    public FindIterable retrievePatchList() {
+        System.out.println("Retrieving All Patches");
+        collection = db.getCollection("patches");
+        return  collection.find();
+    }
+
 
     @GET
     @Path("/retrieve/owners/{ownerId}")
