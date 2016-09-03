@@ -87,7 +87,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/booster/boosterByUaid/{uaID}")
+    @Path("/retrieve/booster/getBoosterByUaid/{uaID}")
     @Produces("application/json")
     public FindIterable findBoosterByUaid(@PathParam("uaID")String uaId){
         collection = db.getCollection("booster");
