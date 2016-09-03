@@ -95,6 +95,14 @@ public class BoosterRequestService {
     }
 
     @GET
+    @Path("/retrieve/booster/getBoosterByPatchId/{patchId}")
+    @Produces("application/json")
+    public FindIterable findBoosterByPatchId(@PathParam("patchId")String patchId){
+        collection = db.getCollection("booster");
+        return collection.find(new BasicDBObject("patchInfo", patchId));
+    }
+
+    @GET
     @Path("/retrieve/inventory/getInventoryByOwners/{ownerId}")
     @Produces("application/json")
     public FindIterable findInventoryByOwnerId(@PathParam("ownerId") String ownerId) {
