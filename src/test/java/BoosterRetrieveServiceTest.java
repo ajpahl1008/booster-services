@@ -1,10 +1,10 @@
-import com.pahlsoft.booster.com.pahlsoft.booster.service.BoosterRequestService;
+import com.pahlsoft.booster.com.pahlsoft.booster.service.BoosterRetrievalService;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class BoosterServiceRequestTest {
+public class BoosterRetrieveServiceTest {
 
-    static BoosterRequestService boosterRequestService = new BoosterRequestService();
+    static BoosterRetrievalService boosterRequestService = new BoosterRetrievalService();
 //
 //    @Test
 //    public void retrieveListOfItemsShouldBe10() {

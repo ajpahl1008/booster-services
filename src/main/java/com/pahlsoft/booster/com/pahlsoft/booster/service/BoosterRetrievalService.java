@@ -8,8 +8,8 @@ import com.mongodb.client.MongoDatabase;
 import javax.ws.rs.*;
 
 
-@Path("/")
-public class BoosterRequestService {
+@Path("/retrieve")
+public class BoosterRetrievalService {
 
     static MongoClient client = new MongoClient(new ServerAddress("localhost",27017));
 
@@ -17,12 +17,12 @@ public class BoosterRequestService {
 
     static MongoCollection collection;
 
-    public BoosterRequestService() {
+    public BoosterRetrievalService() {
 
     }
 
     @GET
-    @Path("/retrieve/booster/getAll")
+    @Path("/booster/getAll")
     @Produces("application/json")
     public FindIterable retrieveBoosterList() {
         System.out.println("Retrieving All Booster Items");
@@ -31,7 +31,7 @@ public class BoosterRequestService {
      }
 
     @GET
-    @Path("/retrieve/owners/getAll")
+    @Path("/owners/getAll")
     @Produces("application/json")
     public FindIterable retrieveOwnerList() {
         System.out.println("Retrieving All Owners");
@@ -40,7 +40,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/uaids/getAll")
+    @Path("/uaids/getAll")
     @Produces("application/json")
     public FindIterable retrieveUaidList() {
         System.out.println("Retrieving All UAIDs");
@@ -50,7 +50,7 @@ public class BoosterRequestService {
 
 
     @GET
-    @Path("/retrieve/patches/getAll")
+    @Path("/patches/getAll")
     @Produces("application/json")
     public FindIterable retrievePatchList() {
         System.out.println("Retrieving All Patches");
@@ -59,7 +59,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/inventory/getAll")
+    @Path("/inventory/getAll")
     @Produces("application/json")
     public FindIterable retrieveInventoryList() {
         System.out.println("Retrieving Entire Inventory");
@@ -69,7 +69,7 @@ public class BoosterRequestService {
 
 
     @GET
-    @Path("/retrieve/booster/getBoosterByOwners/{ownerId}")
+    @Path("/booster/getBoosterByOwners/{ownerId}")
     @Produces("application/json")
     public FindIterable findBoosterByOwnerId(@PathParam("ownerId") String ownerId) {
         System.out.println("Retrieving Booster Item by Owner: " + ownerId);
@@ -78,7 +78,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/booster/getBoosterByServername/{serverName}")
+    @Path("/booster/getBoosterByServername/{serverName}")
     @Produces("application/json")
     public FindIterable findBoosterByName(@PathParam("serverName")String serverName){
         System.out.println("Retrieving Booster Item by Server Name: " + serverName);
@@ -87,7 +87,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/booster/getBoosterByUaid/{uaID}")
+    @Path("/booster/getBoosterByUaid/{uaID}")
     @Produces("application/json")
     public FindIterable findBoosterByUaid(@PathParam("uaID")String uaId){
         collection = db.getCollection("booster");
@@ -95,7 +95,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/booster/getBoosterByPatchId/{patchId}")
+    @Path("/booster/getBoosterByPatchId/{patchId}")
     @Produces("application/json")
     public FindIterable findBoosterByPatchId(@PathParam("patchId")String patchId){
         collection = db.getCollection("booster");
@@ -103,7 +103,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/inventory/getInventoryByOwners/{ownerId}")
+    @Path("/inventory/getInventoryByOwners/{ownerId}")
     @Produces("application/json")
     public FindIterable findInventoryByOwnerId(@PathParam("ownerId") String ownerId) {
         System.out.println("Retrieving Inventory by Owner: " + ownerId);
@@ -112,7 +112,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/inventory/getInventoryByServername/{serverName}")
+    @Path("/inventory/getInventoryByServername/{serverName}")
     @Produces("application/json")
     public FindIterable findInventoryByName(@PathParam("serverName")String serverName){
         System.out.println("Retrieving Inventory by Server Name: " +serverName);
@@ -121,7 +121,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/inventory/getInventoryByUaid/{uaID}")
+    @Path("/inventory/getInventoryByUaid/{uaID}")
     @Produces("application/json")
     public FindIterable findInventoryByUaid(@PathParam("uaID")String uaId){
         collection = db.getCollection("inventory");
@@ -129,7 +129,7 @@ public class BoosterRequestService {
     }
 
     @GET
-      @Path("/retrieve/patches/getPatchById/{patchId}")
+      @Path("/patches/getPatchById/{patchId}")
       @Produces("application/json")
       public FindIterable findPatchById(@PathParam("patchId")String patchId){
         System.out.println("Retrieving Patch by ID: " +patchId);
@@ -138,7 +138,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/patches/getPatchesByPlatform/{platform}")
+    @Path("/patches/getPatchesByPlatform/{platform}")
     @Produces("application/json")
     public FindIterable findPatchesByPlatform(@PathParam("platform")String platform){
         System.out.println("Retrieving Patch by Platform: " +platform);
@@ -148,7 +148,7 @@ public class BoosterRequestService {
 
 
     @GET
-    @Path("/retrieve/uaids/getUaidByName/{uaidName}")
+    @Path("/uaids/getUaidByName/{uaidName}")
     @Produces("application/json")
     public FindIterable findUaidByName(@PathParam("uaidName")String uaidName){
         System.out.println("Retrieving UAID by Name: " +uaidName);
@@ -157,7 +157,7 @@ public class BoosterRequestService {
     }
 
     @GET
-    @Path("/retrieve/uaids/getUaidByOwnerId/{ownerId}")
+    @Path("/uaids/getUaidByOwnerId/{ownerId}")
     @Produces("application/json")
     public FindIterable findUaidByOwnerId(@PathParam("ownerId")String ownerId){
         System.out.println("Retrieving UAID by Owner: " +ownerId);
