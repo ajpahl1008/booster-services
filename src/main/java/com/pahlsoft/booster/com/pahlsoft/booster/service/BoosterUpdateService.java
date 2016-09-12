@@ -1,18 +1,15 @@
 package com.pahlsoft.booster.com.pahlsoft.booster.service;
 
 import com.google.gson.Gson;
-import com.mongodb.DuplicateKeyException;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 import com.mongodb.ServerAddress;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.util.JSON;
 import com.pahlsoft.booster.com.pahlsoft.booster.model.Patch;
 import org.bson.Document;
 
-import javax.json.Json;
+
 import javax.ws.rs.*;
 
 @Path("/update")
