@@ -7,6 +7,7 @@ import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.pahlsoft.booster.com.pahlsoft.booster.model.Patch;
+import com.pahlsoft.booster.com.pahlsoft.booster.model.Server;
 import org.bson.Document;
 
 
@@ -49,6 +50,36 @@ public class BoosterUpdateService {
         }
         Document responseDoc = new Document();
         responseDoc.append("success","Patch Added");
+        return responseDoc;
+
+
+
+    }
+
+    @POST
+    @Path("/inventory/addServer")
+    @Produces("application/json")
+    public Document addServer(Server server) throws Exception {
+        System.out.println("Adding Server: " + server.getId());
+        Gson gson = new Gson();
+        String json = gson.toJson(server);
+        Document document = Document.parse(json);
+
+        collection = db.getCollection("inventory");
+
+        try {
+            collection.insertOne(document);
+        } catch (MongoException me) {
+            Document responseDoc = new Document();
+            if ( me.getCode() == 11000 ) {
+                responseDoc.append("error", "Server Already Exists");
+            } else {
+                responseDoc.append("error", "General Write Exception Thrown");
+            }
+            return responseDoc;
+        }
+        Document responseDoc = new Document();
+        responseDoc.append("success","Server Added");
         return responseDoc;
 
 
