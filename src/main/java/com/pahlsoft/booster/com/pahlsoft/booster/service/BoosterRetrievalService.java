@@ -40,11 +40,11 @@ public class BoosterRetrievalService {
     }
 
     @GET
-    @Path("/uaids/getAll")
+    @Path("/applications/getAll")
     @Produces("application/json")
     public FindIterable retrieveUaidList() {
         System.out.println("Retrieving All UAIDs");
-        collection = db.getCollection("uaids");
+        collection = db.getCollection("applications");
         return  collection.find();
     }
 
@@ -87,7 +87,7 @@ public class BoosterRetrievalService {
     }
 
     @GET
-    @Path("/booster/getBoosterByUaid/{uaID}")
+    @Path("/booster/getBoosterByApplicationId/{uaID}")
     @Produces("application/json")
     public FindIterable findBoosterByUaid(@PathParam("uaID")String uaId){
         collection = db.getCollection("booster");
@@ -121,7 +121,7 @@ public class BoosterRetrievalService {
     }
 
     @GET
-    @Path("/inventory/getInventoryByUaid/{uaID}")
+    @Path("/inventory/getInventoryByApplicationId/{uaID}")
     @Produces("application/json")
     public FindIterable findInventoryByUaid(@PathParam("uaID")String uaId){
         collection = db.getCollection("inventory");
@@ -148,20 +148,20 @@ public class BoosterRetrievalService {
 
 
     @GET
-    @Path("/uaids/getUaidByName/{uaidName}")
+    @Path("/applications/getApplicationsByUaid/{uaidName}")
     @Produces("application/json")
     public FindIterable findUaidByName(@PathParam("uaidName")String uaidName){
         System.out.println("Retrieving UAID by Name: " +uaidName);
-        collection = db.getCollection("uaids");
+        collection = db.getCollection("applications");
         return collection.find(new BasicDBObject("name", uaidName));
     }
 
     @GET
-    @Path("/uaids/getUaidByOwnerId/{ownerId}")
+    @Path("/applications/getApplicationsByOwnerId/{ownerId}")
     @Produces("application/json")
     public FindIterable findUaidByOwnerId(@PathParam("ownerId")String ownerId){
         System.out.println("Retrieving UAID by Owner: " +ownerId);
-        collection = db.getCollection("uaids");
+        collection = db.getCollection("applications");
         return collection.find(new BasicDBObject("ownerId", ownerId));
     }
 

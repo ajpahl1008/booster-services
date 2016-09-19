@@ -6,6 +6,7 @@ import com.mongodb.MongoException;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.pahlsoft.booster.com.pahlsoft.booster.model.Application;
 import com.pahlsoft.booster.com.pahlsoft.booster.model.Patch;
 import com.pahlsoft.booster.com.pahlsoft.booster.model.Server;
 import org.bson.Document;
@@ -86,5 +87,34 @@ public class BoosterUpdateService {
 
     }
 
+    @POST
+    @Path("/applications/addApplication")
+    @Produces("application/json")
+    public Document addApplication(Application application) throws Exception {
+        System.out.println("Adding Application: " + application.getId());
+        Gson gson = new Gson();
+        String json = gson.toJson(application);
+        Document document = Document.parse(json);
+
+        collection = db.getCollection("applications");
+
+        try {
+            collection.insertOne(document);
+        } catch (MongoException me) {
+            Document responseDoc = new Document();
+            if ( me.getCode() == 11000 ) {
+                responseDoc.append("error", "Application Already Exists");
+            } else {
+                responseDoc.append("error", "General Write Exception Thrown");
+            }
+            return responseDoc;
+        }
+        Document responseDoc = new Document();
+        responseDoc.append("success","Application Added");
+        return responseDoc;
+
+
+
+    }
 
 }
