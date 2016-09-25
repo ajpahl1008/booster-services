@@ -67,7 +67,6 @@ public class BoosterRetrievalService {
         return  collection.find();
     }
 
-
     @GET
     @Path("/booster/getBoosterByOwners/{ownerId}")
     @Produces("application/json")

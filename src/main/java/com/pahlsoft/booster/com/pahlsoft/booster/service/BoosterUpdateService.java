@@ -7,6 +7,7 @@ import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.pahlsoft.booster.com.pahlsoft.booster.model.Application;
+import com.pahlsoft.booster.com.pahlsoft.booster.model.Owner;
 import com.pahlsoft.booster.com.pahlsoft.booster.model.Patch;
 import com.pahlsoft.booster.com.pahlsoft.booster.model.Server;
 import org.bson.Document;
@@ -52,9 +53,6 @@ public class BoosterUpdateService {
         Document responseDoc = new Document();
         responseDoc.append("success","Patch Added");
         return responseDoc;
-
-
-
     }
 
     @POST
@@ -82,9 +80,6 @@ public class BoosterUpdateService {
         Document responseDoc = new Document();
         responseDoc.append("success","Server Added");
         return responseDoc;
-
-
-
     }
 
     @POST
@@ -112,9 +107,33 @@ public class BoosterUpdateService {
         Document responseDoc = new Document();
         responseDoc.append("success","Application Added");
         return responseDoc;
+    }
 
+    @POST
+    @Path("/owners/addOwner")
+    @Produces("application/json")
+    public Document addOwner(Owner owner) throws Exception {
+        System.out.println("Adding Application: " + owner.getId());
+        Gson gson = new Gson();
+        String json = gson.toJson(owner);
+        Document document = Document.parse(json);
 
+        collection = db.getCollection("owners");
 
+        try {
+            collection.insertOne(document);
+        } catch (MongoException me) {
+            Document responseDoc = new Document();
+            if ( me.getCode() == 11000 ) {
+                responseDoc.append("error", "Owner Already Exists");
+            } else {
+                responseDoc.append("error", "General Write Exception Thrown");
+            }
+            return responseDoc;
+        }
+        Document responseDoc = new Document();
+        responseDoc.append("success","Owner Added");
+        return responseDoc;
     }
 
 }
